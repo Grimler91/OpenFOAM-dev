@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/data/data/com.termux/files/usr/bin/sh
 
 tail -n +4 ../postProcessing/probes/0/U  | \
     tr -s " " | tr -d '(' | cut -d " " -f2-3 > ../Numerical.dat

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/data/data/com.termux/files/usr/bin/sh
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 # Get application name

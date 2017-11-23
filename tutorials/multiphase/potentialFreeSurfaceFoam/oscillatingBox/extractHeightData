@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/data/data/com.termux/files/usr/bin/sh
 awk '{print $1 " " $3}' postProcessing/poolHeight/0/surfaceFieldValue.dat > poolHeight_vs_time
