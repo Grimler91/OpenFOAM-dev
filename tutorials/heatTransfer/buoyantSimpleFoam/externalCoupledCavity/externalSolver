@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/data/data/com.termux/files/usr/bin/sh
 #
 # Dummy external solver to communicate with OpenFOAM via externalCoupled
 # boundary conditions
