@@ -33,7 +33,7 @@
 # The Makefile use a POSIX shell
 #------------------------------------------------------------------------------
 
-SHELL      = /bin/sh
+SHELL      = /data/data/com.termux/files/usr/bin/sh
 
 #------------------------------------------------------------------------------
 # Unset suffices list (suffix rules are not used)

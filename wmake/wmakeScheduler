@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 #------------------------------------------------------------------------------
 # =========                 |
 # \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -128,7 +128,7 @@ esac
 
 # Quote double-quotes for remote command line
 rcmd=$(echo $* | sed -e s/\"/\'\"\'/g)
-# The same, without forking (not ksh, maybe not /bin/sh either)
+# The same, without forking (not ksh, maybe not /data/data/com.termux/files/usr/bin/sh either)
 # rcmd=$(while [ "$#" -gt 0 ]; do echo "${1//\"/'\"'}"; shift; done)
 
 
