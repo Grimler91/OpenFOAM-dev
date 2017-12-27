@@ -30,7 +30,9 @@ License
 
 #include <inttypes.h>
 #include <cxxabi.h>
+#ifndef __ANDROID__
 #include <execinfo.h>
+#endif
 #include <dlfcn.h>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -192,6 +194,7 @@ word demangleSymbol(const char* sn)
 void Foam::error::safePrintStack(std::ostream& os)
 {
     // Get raw stack symbols
+    #ifndef __ANDROID__
     void *array[100];
     size_t size = backtrace(array, 100);
     char **strings = backtrace_symbols(array, size);
@@ -206,11 +209,13 @@ void Foam::error::safePrintStack(std::ostream& os)
 
         os  << '#' << label(i) << '\t' << msg << std::endl;
     }
+    #endif
 }
 
 
 void Foam::error::printStack(Ostream& os)
 {
+    #ifndef __ANDROID__
     // Get raw stack symbols
     const size_t CALLSTACK_SIZE = 128;
 
@@ -248,6 +253,7 @@ void Foam::error::printStack(Ostream& os)
     }
 
     delete info;
+    #endif
 }
 
 
