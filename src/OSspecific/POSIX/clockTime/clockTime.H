@@ -37,6 +37,7 @@ SourceFiles
 #define clockTime_H
 
 #include <sys/types.h>
+#include <linux/time.h>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

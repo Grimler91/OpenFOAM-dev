@@ -23,8 +23,8 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#include <time.h>
 #include "clockTime.H"
-#include <sys/time.h>
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
