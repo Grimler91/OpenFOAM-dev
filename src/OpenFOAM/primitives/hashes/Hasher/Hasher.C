@@ -446,18 +446,18 @@ static unsigned jenkins_hashbig
         // last block: affect all 32 bits of (c)
         switch (length) // the case statements fall through
         {
-            case 12: c += k[11]; [[fallthrough]];
-            case 11: c += static_cast<uint32_t>(k[10]) << 8; [[fallthrough]];
-            case 10: c += static_cast<uint32_t>(k[9]) << 16; [[fallthrough]];
-            case 9 : c += static_cast<uint32_t>(k[8]) << 24; [[fallthrough]];
-            case 8 : b += k[7]; [[fallthrough]];
-            case 7 : b += static_cast<uint32_t>(k[6]) << 8; [[fallthrough]];
-            case 6 : b += static_cast<uint32_t>(k[5]) << 16; [[fallthrough]];
-            case 5 : b += static_cast<uint32_t>(k[4]) << 24; [[fallthrough]];
-            case 4 : a += k[3]; [[fallthrough]];
-            case 3 : a += static_cast<uint32_t>(k[2]) << 8; [[fallthrough]];
-            case 2 : a += static_cast<uint32_t>(k[1]) << 16; [[fallthrough]];
-            case 1 : a += static_cast<uint32_t>(k[0]) << 24; [[fallthrough]];
+            case 12: c += k[11]; //[[fallthrough]];
+            case 11: c += static_cast<uint32_t>(k[10]) << 8; //[[fallthrough]];
+            case 10: c += static_cast<uint32_t>(k[9]) << 16; //[[fallthrough]];
+            case 9 : c += static_cast<uint32_t>(k[8]) << 24; //[[fallthrough]];
+            case 8 : b += k[7]; //[[fallthrough]];
+            case 7 : b += static_cast<uint32_t>(k[6]) << 8; //[[fallthrough]];
+            case 6 : b += static_cast<uint32_t>(k[5]) << 16; //[[fallthrough]];
+            case 5 : b += static_cast<uint32_t>(k[4]) << 24; //[[fallthrough]];
+            case 4 : a += k[3]; //[[fallthrough]];
+            case 3 : a += static_cast<uint32_t>(k[2]) << 8; //[[fallthrough]];
+            case 2 : a += static_cast<uint32_t>(k[1]) << 16; //[[fallthrough]];
+            case 1 : a += static_cast<uint32_t>(k[0]) << 24; //[[fallthrough]];
                 break;
             case 0 : return c;
         }
