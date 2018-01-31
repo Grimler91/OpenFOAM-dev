@@ -31,6 +31,10 @@ License
     #include <sys/endian.h>
 #endif
 
+#if defined(__ANDROID__)
+    #include <sys/endian.h>
+#endif
+
 // MacOSX
 #ifdef __DARWIN_BYTE_ORDER
     #if __DARWIN_BYTE_ORDER==__DARWIN_BIG_ENDIAN

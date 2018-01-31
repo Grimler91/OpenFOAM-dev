@@ -30,6 +30,10 @@ License
     #include <sys/endian.h>
 #endif
 
+#ifdef __ANDROID__
+    #include <sys/endian.h>
+#endif
+
 #if defined(LITTLE_ENDIAN) \
  || defined(_LITTLE_ENDIAN) \
  || defined(__LITTLE_ENDIAN)
