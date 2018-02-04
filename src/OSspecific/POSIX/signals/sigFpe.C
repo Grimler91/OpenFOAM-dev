@@ -56,7 +56,7 @@ bool Foam::sigFpe::mallocNanActive_ = false;
 #ifdef LINUX
 extern "C"
 {
-    extern void* __libc_malloc(size_t size);
+    extern void* malloc(size_t size);
 
     // Override the GLIBC malloc to support mallocNan
     void* malloc(size_t size)
@@ -67,7 +67,7 @@ extern "C"
         }
         else
         {
-            return __libc_malloc(size);
+            return malloc(size);
         }
     }
 }
@@ -75,7 +75,7 @@ extern "C"
 void* Foam::sigFpe::mallocNan(size_t size)
 {
     // Call the low-level GLIBC malloc function
-    void * result = __libc_malloc(size);
+    void * result = malloc(size);
 
     // Initialize to signalling NaN
     UList<scalar> lst(reinterpret_cast<scalar*>(result), size/sizeof(scalar));
