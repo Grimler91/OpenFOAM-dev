@@ -1,7 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/sh
-
-cd ${0%/*} || exit 1
-
-. $WM_PROJECT_DIR/bin/tools/CleanFunctions
-
-cleanCase && rm -rf 0
