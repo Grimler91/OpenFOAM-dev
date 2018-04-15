@@ -501,30 +501,30 @@ Foam::fileOperations::masterUncollatedFileOperation::
 bool Foam::fileOperations::masterUncollatedFileOperation::mkDir
 (
     const fileName& dir,
-    mode_t mode
+    _mode_t mode
 ) const
 {
-    return masterOp<mode_t, mkDirOp>(dir, mkDirOp(mode));
+    return masterOp<_mode_t, mkDirOp>(dir, mkDirOp(mode));
 }
 
 
 bool Foam::fileOperations::masterUncollatedFileOperation::chMod
 (
     const fileName& fName,
-    mode_t mode
+    _mode_t mode
 ) const
 {
-    return masterOp<mode_t, chModOp>(fName, chModOp(mode));
+    return masterOp<_mode_t, chModOp>(fName, chModOp(mode));
 }
 
 
-mode_t Foam::fileOperations::masterUncollatedFileOperation::mode
+_mode_t Foam::fileOperations::masterUncollatedFileOperation::mode
 (
     const fileName& fName,
     const bool followLink
 ) const
 {
-    return masterOp<mode_t, modeOp>(fName, modeOp(followLink));
+    return masterOp<_mode_t, modeOp>(fName, modeOp(followLink));
 }
 
 
