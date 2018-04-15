@@ -294,7 +294,7 @@ bool Foam::chDir(const fileName& dir)
 }
 
 
-bool Foam::mkDir(const fileName& pathName, mode_t mode)
+bool Foam::mkDir(const fileName& pathName, _mode_t mode)
 {
     if (POSIX::debug)
     {
@@ -450,7 +450,7 @@ bool Foam::mkDir(const fileName& pathName, mode_t mode)
 }
 
 
-bool Foam::chMod(const fileName& name, const mode_t m)
+bool Foam::chMod(const fileName& name, const _mode_t m)
 {
     if (POSIX::debug)
     {
@@ -464,7 +464,7 @@ bool Foam::chMod(const fileName& name, const mode_t m)
 }
 
 
-mode_t Foam::mode(const fileName& name, const bool followLink)
+_mode_t Foam::mode(const fileName& name, const bool followLink)
 {
     if (POSIX::debug)
     {
@@ -492,7 +492,7 @@ Foam::fileName::Type Foam::type(const fileName& name, const bool followLink)
             error::printStack(Pout);
         }
     }
-    mode_t m = mode(name, followLink);
+    _mode_t m = mode(name, followLink);
 
     if (S_ISREG(m))
     {

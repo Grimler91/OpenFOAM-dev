@@ -38,6 +38,8 @@ SourceFiles
 
 #include "fileNameList.H"
 
+typedef unsigned int _mode_t;
+
 #include <sys/types.h>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -94,13 +96,13 @@ bool chDir(const fileName& dir);
 
 //- Make a directory and return an error if it could not be created
 //  and does not already exist
-bool mkDir(const fileName&, mode_t=0777);
+bool mkDir(const fileName&, _mode_t=0777);
 
 //- Set the file mode
-bool chMod(const fileName&, const mode_t);
+bool chMod(const fileName&, const _mode_t);
 
 //- Return the file mode
-mode_t mode(const fileName&, const bool followLink = true);
+_mode_t mode(const fileName&, const bool followLink = true);
 
 //- Return the file type: DIRECTORY or FILE
 fileName::Type type(const fileName&, const bool followLink = true);

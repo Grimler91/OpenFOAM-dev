@@ -172,7 +172,7 @@ Foam::fileOperations::uncollatedFileOperation::~uncollatedFileOperation()
 bool Foam::fileOperations::uncollatedFileOperation::mkDir
 (
     const fileName& dir,
-    mode_t mode
+    _mode_t mode
 ) const
 {
     return Foam::mkDir(dir, mode);
@@ -182,14 +182,14 @@ bool Foam::fileOperations::uncollatedFileOperation::mkDir
 bool Foam::fileOperations::uncollatedFileOperation::chMod
 (
     const fileName& fName,
-    mode_t mode
+    _mode_t mode
 ) const
 {
     return Foam::chMod(fName, mode);
 }
 
 
-mode_t Foam::fileOperations::uncollatedFileOperation::mode
+_mode_t Foam::fileOperations::uncollatedFileOperation::mode
 (
     const fileName& fName,
     const bool followLink

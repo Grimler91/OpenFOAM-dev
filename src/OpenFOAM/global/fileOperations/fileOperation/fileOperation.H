@@ -140,13 +140,13 @@ public:
         // OSSpecific equivalents
 
             //- Make directory
-            virtual bool mkDir(const fileName&, mode_t=0777) const = 0;
+            virtual bool mkDir(const fileName&, _mode_t=0777) const = 0;
 
             //- Set the file mode
-            virtual bool chMod(const fileName&, const mode_t) const = 0;
+            virtual bool chMod(const fileName&, const _mode_t) const = 0;
 
             //- Return the file mode
-            virtual mode_t mode
+            virtual _mode_t mode
             (
                 const fileName&,
                 const bool followLink = true

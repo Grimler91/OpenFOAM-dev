@@ -67,9 +67,9 @@ protected:
 
         class mkDirOp
         {
-            const mode_t mode_;
+            const _mode_t mode_;
         public:
-            mkDirOp(const mode_t mode)
+            mkDirOp(const _mode_t mode)
             :
                 mode_(mode)
             {}
@@ -82,9 +82,9 @@ protected:
 
         class chModOp
         {
-            const mode_t mode_;
+            const _mode_t mode_;
         public:
-            chModOp(const mode_t mode)
+            chModOp(const _mode_t mode)
             :
                 mode_(mode)
             {}
@@ -104,7 +104,7 @@ protected:
                 followLink_(followLink)
             {}
 
-            mode_t operator()(const fileName& fName) const
+            _mode_t operator()(const fileName& fName) const
             {
                 return Foam::mode(fName, followLink_);
             }
@@ -425,13 +425,13 @@ public:
         // OSSpecific equivalents
 
             //- Make directory
-            virtual bool mkDir(const fileName&, mode_t=0777) const;
+            virtual bool mkDir(const fileName&, _mode_t=0777) const;
 
             //- Set the file mode
-            virtual bool chMod(const fileName&, const mode_t) const;
+            virtual bool chMod(const fileName&, const _mode_t) const;
 
             //- Return the file mode
-            virtual mode_t mode
+            virtual _mode_t mode
             (
                 const fileName&,
                 const bool followLink = true

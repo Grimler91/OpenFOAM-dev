@@ -42,6 +42,8 @@ SourceFiles
 #ifndef fileMonitor_H
 #define fileMonitor_H
 
+typedef unsigned int _mode_t;
+
 #include <sys/types.h>
 #include "NamedEnum.H"
 #include "className.H"
