@@ -131,7 +131,7 @@ public:
 
 inline int64_t mag(const int64_t l)
 {
-    return ::labs(l);
+    return ::abs(l);
 }
 
 
