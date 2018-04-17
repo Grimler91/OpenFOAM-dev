@@ -38,6 +38,9 @@ License
 #elif defined(sgiN32) || defined(sgiN32Gcc)
     #include <sigfpe.h>
 #endif
+#ifdef __ANDROID__
+#include <malloc.h>
+#endif
 
 #include <limits>
 
@@ -58,6 +61,9 @@ extern "C"
 {
     extern void* malloc(size_t size);
 
+    // The override below gives segmentation fault in malloc on arm so skip
+    // on android for now.
+    #ifndef __ANDROID__
     // Override the GLIBC malloc to support mallocNan
     void* malloc(size_t size)
     {
@@ -70,6 +76,7 @@ extern "C"
             return malloc(size);
         }
     }
+    #endif
 }
 
 void* Foam::sigFpe::mallocNan(size_t size)
