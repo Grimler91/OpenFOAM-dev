@@ -1,9 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/sh
-cd ${0%/*} || exit 1    # Run from this directory
-
-wmakeLnInclude decompositionMethods
-wmakeLnInclude metisDecomp
-wmakeLnInclude scotchDecomp
-wmakeLnInclude ptscotchDecomp
-
-#------------------------------------------------------------------------------
