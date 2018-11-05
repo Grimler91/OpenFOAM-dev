@@ -38,7 +38,6 @@ SourceFiles
 
 #include "floatScalar.H"
 #include "doubleScalar.H"
-#include "longDoubleScalar.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -76,24 +75,6 @@ namespace Foam
     static const scalar rootSmall = doubleScalarRootSmall;
     static const scalar vSmall = doubleScalarVSmall;
     static const scalar rootVSmall = doubleScalarRootVSmall;
-}
-
-#elif defined(WM_LP)
-
-// Define scalar as a long double
-
-namespace Foam
-{
-    typedef longDoubleScalar scalar;
-
-    static const scalar great = longDoubleScalarGreat;
-    static const scalar rootGreat = longDoubleScalarRootGreat;
-    static const scalar vGreat = longDoubleScalarVGreat;
-    static const scalar rootVGreat = longDoubleScalarRootVGreat;
-    static const scalar small = longDoubleScalarSmall;
-    static const scalar rootSmall = longDoubleScalarRootSmall;
-    static const scalar vSmall = longDoubleScalarVSmall;
-    static const scalar rootVSmall = longDoubleScalarRootVSmall;
 }
 
 #else

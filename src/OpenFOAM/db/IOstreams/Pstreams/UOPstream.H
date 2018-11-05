@@ -168,9 +168,6 @@ public:
             //- Write doubleScalar
             Ostream& write(const doubleScalar);
 
-            //- Write longDoubleScalar
-            Ostream& write(const longDoubleScalar);
-
             //- Write binary block
             Ostream& write(const char*, std::streamsize);
 

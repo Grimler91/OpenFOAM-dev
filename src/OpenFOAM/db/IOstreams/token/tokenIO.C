@@ -88,10 +88,6 @@ Foam::Ostream& Foam::operator<<(Ostream& os, const token& t)
             os << t.doubleScalarToken_;
         break;
 
-        case token::LONG_DOUBLE_SCALAR:
-            os << *t.longDoubleScalarTokenPtr_;
-        break;
-
         case token::COMPOUND:
             os << *t.compoundTokenPtr_;
         break;
@@ -183,10 +179,6 @@ ostream& Foam::operator<<(ostream& os, const InfoProxy<token>& ip)
             os  << " the doubleScalar " << t.doubleScalarToken();
         break;
 
-        case token::LONG_DOUBLE_SCALAR:
-            os  << " the longDoubleScalar " << t.longDoubleScalarToken();
-        break;
-
         case token::COMPOUND:
         {
             if (t.compoundToken().empty())
@@ -257,10 +249,6 @@ Foam::Ostream& Foam::operator<<(Ostream& os, const InfoProxy<token>& ip)
 
         case token::DOUBLE_SCALAR:
             os  << " the doubleScalar " << t.doubleScalarToken();
-        break;
-
-        case token::LONG_DOUBLE_SCALAR:
-            os  << " the longDoubleScalar " << t.longDoubleScalarToken();
         break;
 
         case token::COMPOUND:

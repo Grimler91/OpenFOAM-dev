@@ -128,9 +128,6 @@ public:
             //- Read a doubleScalar
             virtual Istream& read(doubleScalar&) = 0;
 
-            //- Read a longDoubleScalar
-            virtual Istream& read(longDoubleScalar&) = 0;
-
             //- Read binary block
             virtual Istream& read(char*, std::streamsize) = 0;
 

@@ -136,9 +136,6 @@ public:
             //- Write doubleScalar
             virtual Ostream& write(const doubleScalar) = 0;
 
-            //- Write longDoubleScalar
-            virtual Ostream& write(const longDoubleScalar) = 0;
-
             //- Write binary block
             virtual Ostream& write(const char*, std::streamsize) = 0;
 

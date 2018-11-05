@@ -159,9 +159,6 @@ public:
             //- Read a doubleScalar
             Istream& read(doubleScalar&);
 
-            //- Read a longDoubleScalar
-            Istream& read(longDoubleScalar&);
-
             //- Read binary block
             Istream& read(char*, std::streamsize);
 

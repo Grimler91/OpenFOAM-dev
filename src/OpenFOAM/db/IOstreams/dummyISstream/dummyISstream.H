@@ -119,13 +119,6 @@ public:
                 return *this;
             }
 
-            //- Read a longDoubleScalar
-            virtual Istream& read(longDoubleScalar&)
-            {
-                NotImplemented;
-                return *this;
-            }
-
             //- Read binary block
             virtual Istream& read(char*, std::streamsize)
             {

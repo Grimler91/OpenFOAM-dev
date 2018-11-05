@@ -37,10 +37,6 @@ inline void Foam::token::clear()
     {
         delete stringTokenPtr_;
     }
-    else if (type_ == LONG_DOUBLE_SCALAR)
-    {
-        delete longDoubleScalarTokenPtr_;
-    }
     else if (type_ == COMPOUND)
     {
         if (compoundTokenPtr_->unique())
@@ -102,11 +98,6 @@ inline Foam::token::token(const token& t)
             doubleScalarToken_ = t.doubleScalarToken_;
         break;
 
-        case LONG_DOUBLE_SCALAR:
-            longDoubleScalarTokenPtr_ =
-                new longDoubleScalar(*t.longDoubleScalarTokenPtr_);
-        break;
-
         case COMPOUND:
             compoundTokenPtr_ = t.compoundTokenPtr_;
             compoundTokenPtr_->refCount::operator++();
@@ -162,14 +153,6 @@ inline Foam::token::token(const doubleScalar s, label lineNumber)
 :
     type_(DOUBLE_SCALAR),
     doubleScalarToken_(s),
-    lineNumber_(lineNumber)
-{}
-
-
-inline Foam::token::token(const longDoubleScalar s, label lineNumber)
-:
-    type_(LONG_DOUBLE_SCALAR),
-    longDoubleScalarTokenPtr_(new longDoubleScalar(s)),
     lineNumber_(lineNumber)
 {}
 
@@ -324,32 +307,12 @@ inline Foam::doubleScalar Foam::token::doubleScalarToken() const
 }
 
 
-inline bool Foam::token::isLongDoubleScalar() const
-{
-    return (type_ == LONG_DOUBLE_SCALAR);
-}
-
-inline Foam::longDoubleScalar Foam::token::longDoubleScalarToken() const
-{
-    if (type_ == LONG_DOUBLE_SCALAR)
-    {
-        return *longDoubleScalarTokenPtr_;
-    }
-    else
-    {
-        parseError("longDoubleScalar");
-        return 0.0;
-    }
-}
-
-
 inline bool Foam::token::isScalar() const
 {
     return
     (
         type_ == FLOAT_SCALAR
      || type_ == DOUBLE_SCALAR
-     || type_ == LONG_DOUBLE_SCALAR
     );
 }
 
@@ -362,10 +325,6 @@ inline Foam::scalar Foam::token::scalarToken() const
     else if (type_ == DOUBLE_SCALAR)
     {
         return doubleScalarToken_;
-    }
-    else if (type_ == LONG_DOUBLE_SCALAR)
-    {
-        return *longDoubleScalarTokenPtr_;
     }
     else
     {
@@ -471,11 +430,6 @@ inline void Foam::token::operator=(const token& t)
             doubleScalarToken_ = t.doubleScalarToken_;
         break;
 
-        case LONG_DOUBLE_SCALAR:
-            longDoubleScalarTokenPtr_ =
-                new longDoubleScalar(*t.longDoubleScalarTokenPtr_);
-        break;
-
         case COMPOUND:
             compoundTokenPtr_ = t.compoundTokenPtr_;
             compoundTokenPtr_->refCount::operator++();
@@ -540,13 +494,6 @@ inline void Foam::token::operator=(const doubleScalar s)
     doubleScalarToken_ = s;
 }
 
-inline void Foam::token::operator=(const longDoubleScalar s)
-{
-    clear();
-    type_ = LONG_DOUBLE_SCALAR;
-    longDoubleScalarTokenPtr_ = new longDoubleScalar(s);
-}
-
 inline void Foam::token::operator=(Foam::token::compound* cPtr)
 {
     clear();
@@ -586,13 +533,6 @@ inline bool Foam::token::operator==(const token& t) const
 
         case DOUBLE_SCALAR:
             return equal(doubleScalarToken_, t.doubleScalarToken_);
-
-        case LONG_DOUBLE_SCALAR:
-            return equal
-            (
-                *longDoubleScalarTokenPtr_,
-                *t.longDoubleScalarTokenPtr_
-            );
 
         case COMPOUND:
             return compoundTokenPtr_ == t.compoundTokenPtr_;
@@ -638,14 +578,6 @@ inline bool Foam::token::operator==(const doubleScalar s) const
     return (type_ == DOUBLE_SCALAR && equal(doubleScalarToken_, s));
 }
 
-inline bool Foam::token::operator==(const longDoubleScalar s) const
-{
-    return
-    (
-        type_ == LONG_DOUBLE_SCALAR && equal(*longDoubleScalarTokenPtr_, s)
-    );
-}
-
 inline bool Foam::token::operator!=(const token& t) const
 {
     return !operator==(t);
@@ -672,11 +604,6 @@ inline bool Foam::token::operator!=(const floatScalar s) const
 }
 
 inline bool Foam::token::operator!=(const doubleScalar s) const
-{
-    return !operator==(s);
-}
-
-inline bool Foam::token::operator!=(const longDoubleScalar s) const
 {
     return !operator==(s);
 }

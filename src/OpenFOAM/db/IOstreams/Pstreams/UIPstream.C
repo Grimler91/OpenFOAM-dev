@@ -244,21 +244,6 @@ Foam::Istream& Foam::UIPstream::read(token& t)
             return *this;
         }
 
-        // longDoubleScalar
-        case token::LONG_DOUBLE_SCALAR :
-        {
-            longDoubleScalar val;
-            if (read(val))
-            {
-                t = val;
-            }
-            else
-            {
-                t.setBad();
-            }
-            return *this;
-        }
-
         // Character (returned as a single character word) or error
         default:
         {
@@ -323,13 +308,6 @@ Foam::Istream& Foam::UIPstream::read(floatScalar& val)
 
 
 Foam::Istream& Foam::UIPstream::read(doubleScalar& val)
-{
-    readFromBuffer(val);
-    return *this;
-}
-
-
-Foam::Istream& Foam::UIPstream::read(longDoubleScalar& val)
 {
     readFromBuffer(val);
     return *this;

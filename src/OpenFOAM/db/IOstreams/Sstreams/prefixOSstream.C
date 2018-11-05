@@ -165,13 +165,6 @@ Foam::Ostream& Foam::prefixOSstream::write(const doubleScalar val)
 }
 
 
-Foam::Ostream& Foam::prefixOSstream::write(const longDoubleScalar val)
-{
-    checkWritePrefix();
-    return OSstream::write(val);
-}
-
-
 Foam::Ostream& Foam::prefixOSstream::write
 (
     const char* buf,
